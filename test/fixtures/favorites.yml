@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_favorited: false
+  user: one
+  location: one
+  coffee_shop: one
+
+two:
+  is_favorited: false
+  user: two
+  location: two
+  coffee_shop: two
