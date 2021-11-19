@@ -2023,3 +2023,397 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 27ms (Views: 2.9ms | ActiveRecord: 3.2ms | Allocations: 1235)
 
 
+Started POST "/signup" for 127.0.0.1 at 2021-11-18 14:08:16 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Katherine", "last_name"=>"White", "email"=>"travis@angry-fly.com", "age"=>24, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Katherine", "last_name"=>"White", "email"=>"travis@angry-fly.com", "age"=>24, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Katherine"], ["last_name", "White"], ["email", "travis@angry-fly.com"], ["age", 24], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$G/.a7rat1vZNmyiBC2wa0.FGusB13ccNONm17XBJJeJLdSK7BLaXe"], ["created_at", "2021-11-18 19:08:16.350317"], ["updated_at", "2021-11-18 19:08:16.350317"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.64ms)
+Completed 201 Created in 252ms (Views: 3.1ms | ActiveRecord: 2.6ms | Allocations: 10374)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:08:36 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1111)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:19:35 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 1255)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:21:22 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 20ms (Views: 2.4ms | ActiveRecord: 2.6ms | Allocations: 4304)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:44:14 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 1.1ms | ActiveRecord: 1.3ms | Allocations: 3921)
+
+
+Started DELETE "/logout/" for ::1 at 2021-11-18 14:45:39 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "session"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 1.1ms | ActiveRecord: 1.0ms | Allocations: 693)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:53:34 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 55ms (Views: 2.7ms | ActiveRecord: 1.5ms | Allocations: 3895)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:06 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 7ms (Allocations: 42)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:11 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 30)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:12 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 1ms (Allocations: 30)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:13 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:14 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 30)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:14 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:15 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:16 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:17 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:20 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 14:54:43 -0500
+Processing by SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/signup" for 127.0.0.1 at 2021-11-18 15:01:53 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 8 pending migrations:
+
+20211104231732_create_users.rb
+20211109022609_create_coffee_shops.rb
+20211110030240_create_locations.rb
+20211110202958_create_reviews.rb
+20211110203414_create_comments.rb
+20211110210753_create_favorites.rb
+20211116220225_add_account_type_to_users.rb
+20211116220419_remove_account_image_from_users.rb
+
+
+):
+  
+activerecord (6.1.4.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4.1) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.4.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211104231732)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "age" integer, "profile_image" varchar, "account_image" varchar, "is_verified" boolean, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211104231732"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCoffeeShops (20211109022609)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "coffee_shops" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "house_roasted" boolean, "roaster_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211109022609"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLocations (20211110030240)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "street_address" varchar, "city" varchar, "state" varchar, "zip" varchar, "coffee_shop_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9b2567723e"
+FOREIGN KEY ("coffee_shop_id")
+  REFERENCES "coffee_shops" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_locations_on_coffee_shop_id" ON "locations" ("coffee_shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211110030240"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20211110202958)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "overall_rating" float, "ambience_description" varchar, "beverage_rating" float, "service_rating" float, "location_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b82013c5ae"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+, CONSTRAINT "fk_rails_74a66bd6c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_location_id" ON "reviews" ("location_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211110202958"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (20211110203414)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment_body" varchar, "user_id" integer NOT NULL, "review_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_5350d1b47c"
+FOREIGN KEY ("review_id")
+  REFERENCES "reviews" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_review_id" ON "comments" ("review_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211110203414"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20211110210753)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "is_favorited" boolean, "user_id" integer NOT NULL, "location_id" integer NOT NULL, "coffee_shop_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_582c907f82"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+, CONSTRAINT "fk_rails_e0559dec2f"
+FOREIGN KEY ("coffee_shop_id")
+  REFERENCES "coffee_shops" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_location_id" ON "favorites" ("location_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_favorites_on_coffee_shop_id" ON "favorites" ("coffee_shop_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211110210753"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAccountTypeToUsers (20211116220225)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD "account_type" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211116220225"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveAccountImageFromUsers (20211116220419)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "profile_image" varchar DEFAULT NULL, "account_image" varchar DEFAULT NULL, "is_verified" boolean DEFAULT NULL, "password_digest" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "account_type" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","first_name","last_name","email","age","profile_image","account_image","is_verified","password_digest","created_at","updated_at","account_type")
+                     SELECT "id","first_name","last_name","email","age","profile_image","account_image","is_verified","password_digest","created_at","updated_at","account_type" FROM "users"[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "profile_image" varchar DEFAULT NULL, "is_verified" boolean DEFAULT NULL, "password_digest" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "account_type" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","first_name","last_name","email","age","profile_image","is_verified","password_digest","created_at","updated_at","account_type")
+                     SELECT "id","first_name","last_name","email","age","profile_image","is_verified","password_digest","created_at","updated_at","account_type" FROM "ausers"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211116220419"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-11-18 20:02:12.623054"], ["updated_at", "2021-11-18 20:02:12.623054"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2021-11-18 15:02:24 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Courtney"], ["email", "travis@angry-fly.com"], ["age", 26], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$KNPIErSCit4gxa.byPNp4uTSUv4fIHweywCLzZwRbNdTv8Fup09hG"], ["created_at", "2021-11-18 20:02:24.510944"], ["updated_at", "2021-11-18 20:02:24.510944"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (1.01ms)
+Completed 201 Created in 261ms (Views: 4.5ms | ActiveRecord: 3.0ms | Allocations: 10395)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-11-18 15:02:38 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 1111)
+
+
+Started POST "/signup" for 127.0.0.1 at 2021-11-19 13:51:41 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (5.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Courtney"], ["email", "travis@angry-fly.com"], ["age", 26], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$3QwgDQoP6rsTcSTrNJvDBenvNxiVAUwBsTRx3WqzI91jMsQneYEPW"], ["created_at", "2021-11-19 18:51:42.585809"], ["updated_at", "2021-11-19 18:51:42.585809"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (12.8ms)
+Completed 201 Created in 636ms (Views: 35.6ms | ActiveRecord: 30.6ms | Allocations: 2639)
+
+
+Started POST "/signup" for 127.0.0.1 at 2021-11-19 13:51:56 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Courtney"], ["email", "travis@angry-fly.com"], ["age", 26], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$zMlN6j9uZ6sQzHPqQRbQUeFjaN4P7DDthagw7ZT.u/S80NhMMICGy"], ["created_at", "2021-11-19 18:51:56.805723"], ["updated_at", "2021-11-19 18:51:56.805723"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.77ms)
+Completed 201 Created in 237ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 2190)
+
+
+Started POST "/signup" for 127.0.0.1 at 2021-11-19 13:52:01 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Courtney"], ["email", "travis@angry-fly.com"], ["age", 26], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$9/0lrwNL/MnOVo.r4Z6DBuWW/xTnQg2vJTuH4BAC2kQeggkoytlqO"], ["created_at", "2021-11-19 18:52:01.508856"], ["updated_at", "2021-11-19 18:52:01.508856"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.92ms)
+Completed 201 Created in 237ms (Views: 1.3ms | ActiveRecord: 2.9ms | Allocations: 2193)
+
+
+Started POST "/signup" for 127.0.0.1 at 2021-11-19 13:54:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "account_type"=>"admin", "is_verified"=>true, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"Travis", "last_name"=>"Courtney", "email"=>"travis@angry-fly.com", "age"=>26, "profile_image"=>"test", "is_verified"=>true, "account_type"=>"admin"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "age", "profile_image", "is_verified", "password_digest", "created_at", "updated_at", "account_type") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Courtney"], ["email", "travis@angry-fly.com"], ["age", 26], ["profile_image", "test"], ["is_verified", 1], ["password_digest", "$2a$12$QQ0bkCon2FXDNBMYBIW38Osnc0GtekBzmLL/LovAbl5i08zJHC9s6"], ["created_at", "2021-11-19 18:54:36.390550"], ["updated_at", "2021-11-19 18:54:36.390550"], ["account_type", "admin"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (2.06ms)
+Completed 201 Created in 272ms (Views: 5.2ms | ActiveRecord: 5.1ms | Allocations: 2169)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2021-11-19 14:51:11 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started POST "/login" for 127.0.0.1 at 2021-11-19 15:33:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"travis@angry-fly.com", "password"=>"[FILTERED]", "session"=>{"email"=>"travis@angry-fly.com", "password"=>"[FILTERED]"}}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "travis@angry-fly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (17.94ms)
+Completed 200 OK in 444ms (Views: 33.6ms | ActiveRecord: 11.3ms | Allocations: 1344)
+
+

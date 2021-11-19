@@ -1,12 +1,18 @@
 import './App.css';
-import LoginButton from './compontents/LoginButton';
-import LogoutButton from './compontents/LogoutButton';
+import LogoutButton from './components/LogoutButton';
+import Signup from './components/Signup';
+import Login from './components/Login'
+
 
 function App() {
+
+
+
   return (
     <div className="App">
       <div>
-        <LoginButton />
+        <Signup />
+        <Login />
         <LogoutButton />
       </div>
     </div>
