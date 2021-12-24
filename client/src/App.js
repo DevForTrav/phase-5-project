@@ -1,11 +1,9 @@
 import './App.css';
-import Signup from './components/sessions/Signup';
 import Login from './components/sessions/Login'
-import Navigation from './components/Navigation';
-import UserHomepage from './components/UserHomepage'
-import axios from 'axios';
+import UserHomepage from './components/user_components/UserHomepage'
 import {useState} from 'react'
-import LogoutButton from './components/sessions/LogoutButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 

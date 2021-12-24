@@ -27,13 +27,14 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'active_model_serializers', '~> 0.10.12'
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
 gem 'rack-proxy', '~> 0.7.0'
 
 gem 'awesome_print', '~> 1.9', '>= 1.9.2'
+
+gem 'httparty', '~> 0.13.7'
 
 
 group :development, :test do

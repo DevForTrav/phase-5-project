@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get '/me', to: "users#show"
+  get '/google_places', to: "google_places#index"
 
   resources :users, except: :show
   resources :coffee_shops

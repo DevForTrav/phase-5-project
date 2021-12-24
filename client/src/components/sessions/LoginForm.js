@@ -10,12 +10,13 @@ const LoginForm = ( props ) => {
 
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
-    const [err, setErr] = useState([])
+
 
     const handleClick = () => {
             axios.post("/login", {
                     email,
-                    password
+                    password,
+                    "location" : props.currentLocation
                 })
                 .then((res) => {
                     props.renderModal(false)
@@ -37,9 +38,6 @@ const LoginForm = ( props ) => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
