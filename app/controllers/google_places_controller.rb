@@ -3,13 +3,14 @@ class GooglePlacesController < ApplicationController
     attr_accessor :local_coffee_shops
     skip_before_action :authorize
     require 'httparty'
+    require_relative '../../.api_key.rb'
 
     def initialize
         @local_coffee_shops = []    
     end
 
     def index
-        coffee_shops = HTTParty.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee+shop&location=35.6004,-82.4918, &radius=15&region=us&type=cafe,bakery&key=')
+        coffee_shops = HTTParty.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee+shop&location=#{search_params[:lat]},#{search_params[:lng]}, &radius=100&region=us&type=cafe,bakery&key=#{$api_key}")
         exclude_franchise(coffee_shops["results"])
         # is_operational?
         render json: @local_coffee_shops
@@ -40,7 +41,7 @@ class GooglePlacesController < ApplicationController
     end
 
 
-    # def search_params
-
-    # end
+    def search_params
+        params.permit( :lat, :lng)
+    end
 end

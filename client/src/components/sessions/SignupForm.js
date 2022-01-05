@@ -32,7 +32,7 @@ const SignupForm = (props) => {
                     props.isLoggedIn(true)
                 })
             }
-        }).catch((err) => console.log(err))
+        }).catch((error) => setErr(error))
 
     }
 

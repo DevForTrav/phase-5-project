@@ -5,34 +5,36 @@ import LogoutButton from "../sessions/LogoutButton";
 import UserWelcome from "./UserWelcome";
 import RenderCoffeeShop from "../coffee_shops/RenderCoffeeShop";
 import { Container } from "react-bootstrap";
+import { getUserLocation } from '../../custom_modules/userLocation'
 
 
 const UserHomepage = ({isLoggedIn}) => {
     const [user, setUser] = useState(null)
-    const [error, setError] = useState(null)
+    const [location, setLocation] = useState(null)
+    const [err, setErr] = useState(null)
 
     useEffect(() => {
+        getUserLocation(setLocation)
         axios
             .get('/me')
-            .then(  (res) => {
-                setUser(res.data)
+            .then((res) => {
+                setUser(res.data) 
                 isLoggedIn(true)
-            }).catch(error => {
-                setError(error)
+            })
+            .catch(error => {
+                setErr(error)
                 isLoggedIn(false)
             })
     }, [isLoggedIn])
 
-    console.log(user)
-    // if (error) return `${error}`
-
+    
     return(
         <>
             <Navigation />
+            {err ? <p>err</p> : null}
             <Container>
                 {user ? <UserWelcome userName={user.first_name} /> : null}
-                {console.log(user)}
-                {user ? <RenderCoffeeShop location={user.location} /> : null}
+                {location ? <RenderCoffeeShop location={location} /> : null}
                 <LogoutButton isLoggedIn={isLoggedIn} />
             </Container>
         </>

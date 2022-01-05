@@ -8,39 +8,25 @@ import  Col from "react-bootstrap/Col";
 
 const RenderCoffeeShop = ( props ) => {
     const [ coffeeShops, setCoffeeShops ] = useState([])
-    console.log(props)
+    
     useEffect(() => {
-        axios.get(`/google_places`,{
-            
-        })
+        const location = props.location
+        axios.get(`/google_places?latitude=${location.lat}&longitude=${location.lng}`)
         .then((res) => {
             setCoffeeShops(res.data)
         })
-    }, [])
+    }, [props.location])
  
     const renderCoffeeShops = () => {
         return coffeeShops.map((coffeeShop, idx) => {
             return( 
-                <Col >
-                    <CoffeeShopCard   key={idx} coffeeShop={coffeeShop} />
+                <Col key={idx} >
+                    <CoffeeShopCard currentUserLocation={props.location} coffeeShop={coffeeShop} />
                 </Col>
             )
         })
 
     };
-
-    
-
-    const location = {
-        "country_code":"US", 
-        "country_name":"United States", 
-        "city":"Asheville", 
-        "postal":"28805", 
-        "latitude":35.6004, 
-        "longitude":-82.4918, 
-        "IPv4":"66.169.21.35", 
-        "state":"North Carolina"
-    }
 
     return (
         <Row>
