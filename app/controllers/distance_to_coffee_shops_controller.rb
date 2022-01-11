@@ -2,6 +2,7 @@ class DistanceToCoffeeShopsController < ApplicationController
     require 'httparty'
     require_relative '../../.api_key.rb'
     skip_before_action :authorize
+
     def index
         distance = HTTParty.get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{distance_params[:origins]}&destinations=#{distance_params[:destinations]}&key=#{$api_key}")
         distance = format_distance(distance)

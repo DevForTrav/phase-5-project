@@ -1,9 +1,16 @@
 class CoffeeShopImagesController < ApplicationController
     skip_before_action :authorize
     require 'httparty'
+    require 'base64'    
     require_relative '../../.api_key.rb'
+
     def index
-        image = HTTParty.get("https://maps.googleapis.com/maps/api/place/photo?photo_reference=Aap_uEAFivZRd-CG6oyawvPto3GKFjvAcS2stV2Tr9ZDbM8K-QuKNwIUnurk5_XYofSEP6WAWWHa3-BL2Ws7VUtNUJPMNgu8fufpB2Hi5cy_62vAj9VGibVZJBbCxxOEA7DqHAmBeQ7du-5rs83iV2DbSXSLsrCyVS3PTAGwBEifPgqBXDrl&maxwidth=400&key=#{$api_key}").body
-        render json: image
+        image = HTTParty.get("https://maps.googleapis.com/maps/api/place/photo?photo_reference=#{image_params[:photo_reference]}&maxwidth=400&key=#{$api_key}").body 
+        encodedImage = Base64.encode64(image)
+        render json: encodedImage
+    end
+
+    def image_params
+        params.permit(:photo_reference)
     end
 end

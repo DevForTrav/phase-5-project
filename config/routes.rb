@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/me', to: "users#show"
   get '/google_places/', to: "google_places#index"
   get '/distance_to_coffee_shops/', to: "distance_to_coffee_shops#index"
-  get '/coffee_shop_images/', to: "coffee_shop_images#index"
+  get '/coffee_shop_images', to: "coffee_shop_images#index"
 
   resources :users, except: :show
   resources :coffee_shops

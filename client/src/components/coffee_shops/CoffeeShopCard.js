@@ -9,19 +9,24 @@ import { getCoffeeShopImage } from "../../custom_modules/getCoffeeShopImage";
 const CoffeeShopCard = ( props ) => {
     const [distance, setDistance] = useState(null)
     const [img, setImg] = useState(null)
+    const [renderCoffeeShopModal, setRenderCoffeeShopModal ] = useState(false)
 
     const userCurrentLocation= `${props.currentUserLocation.lat},${props.currentUserLocation.lng}`
     const destination = `${props.coffeeShop.geometry.location.lat},${props.coffeeShop.geometry.location.lng}`
-
+    const photoReference = props.coffeeShop.photos
     
     useEffect(() => {
-        // getCoffeeShopImage("", setImg)
+        getCoffeeShopImage(photoReference, setImg)
         distanceToCoffeeShop(userCurrentLocation, destination).then(res => setDistance(res))
-    }, [userCurrentLocation, destination])
+    }, [userCurrentLocation, destination, photoReference])
+
 
     return (
-        <Card  style={{ width: '18rem' }} >
-            <Card.Img variant="top" src={"https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} />
+        <>
+            
+        </>
+        <Card  style={{ width: '18rem' }} onClick={setRenderCoffeeShopModal(!renderCoffeeShopModal)} >
+            {/* <Card.Img variant="top" src={img} /> */}
             <Card.Body>
                 <Card.Title>{props.coffeeShop.name}</Card.Title>
             </Card.Body>
