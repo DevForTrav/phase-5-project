@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        review = Review.create!()
+        review = Review.find_or_create_by!(review_params)
         render json: review, status: :created
     end
 

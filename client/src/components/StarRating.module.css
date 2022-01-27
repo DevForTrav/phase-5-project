@@ -1,0 +1,16 @@
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+.on {
+    background-color: #000;
+  }
+.off {
+    color: rgb(138, 29, 29);
+  }
+
+span::hover {
+    background-color: black;
+}

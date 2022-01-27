@@ -15,8 +15,7 @@ const LoginForm = ( props ) => {
     const handleClick = () => {
             axios.post("/login", {
                     email,
-                    password,
-                    "location" : props.currentLocation
+                    password
                 })
                 .then((res) => {
                     props.renderModal(false)

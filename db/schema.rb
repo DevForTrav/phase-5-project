@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_220419) do
+ActiveRecord::Schema.define(version: 2022_01_27_042122) do
 
   create_table "coffee_shops", force: :cascade do |t|
     t.string "name"
@@ -31,13 +31,10 @@ ActiveRecord::Schema.define(version: 2021_11_16_220419) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.boolean "is_favorited"
     t.integer "user_id", null: false
     t.integer "location_id", null: false
-    t.integer "coffee_shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["coffee_shop_id"], name: "index_favorites_on_coffee_shop_id"
     t.index ["location_id"], name: "index_favorites_on_location_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -50,6 +47,10 @@ ActiveRecord::Schema.define(version: 2021_11_16_220419) do
     t.integer "coffee_shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "formatted_address"
+    t.string "place_id"
+    t.string "photo_reference"
+    t.string "coordinates"
     t.index ["coffee_shop_id"], name: "index_locations_on_coffee_shop_id"
   end
 
@@ -83,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_11_16_220419) do
 
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
-  add_foreign_key "favorites", "coffee_shops"
   add_foreign_key "favorites", "locations"
   add_foreign_key "favorites", "users"
   add_foreign_key "locations", "coffee_shops"

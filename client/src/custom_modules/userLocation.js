@@ -10,7 +10,6 @@ const getUserLocation =  (state) => {
             state(userLocation)
         }
 
-
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(displayLocationInfo);    
         }

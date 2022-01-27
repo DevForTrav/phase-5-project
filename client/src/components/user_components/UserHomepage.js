@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Navigation from "../Navigation";
-import LogoutButton from "../sessions/LogoutButton";
-import UserWelcome from "./UserWelcome";
-import RenderCoffeeShop from "../coffee_shops/RenderCoffeeShop";
+import RenderGoogleCoffeeShops from "../coffee_shops/RenderGoogleCoffeeShops";
 import { Container } from "react-bootstrap";
 import { getUserLocation } from '../../custom_modules/userLocation'
+import RenderKafficoCoffeeShops from "../coffee_shops/RenderKafficoCoffeeShops";
+import SearchParamsForm from "../SearchParamsForm";
 
 
 const UserHomepage = ({isLoggedIn}) => {
@@ -30,12 +30,14 @@ const UserHomepage = ({isLoggedIn}) => {
     
     return(
         <>
-            <Navigation />
+            <Navigation user={user} isLoggedIn={isLoggedIn} />
             {err ? <p>err</p> : null}
             <Container>
-                {user ? <UserWelcome userName={user.first_name} /> : null}
-                {location ? <RenderCoffeeShop location={location} /> : null}
-                <LogoutButton isLoggedIn={isLoggedIn} />
+                <SearchParamsForm />
+                <h1>Local Coffee Shops from Kaffico:</h1>
+                {location ? <RenderKafficoCoffeeShops parentComponent="kaffico" user={user} location={location} /> : null}
+                <h1>Local Coffee Shops from Google:</h1>
+                {/* {location ? <RenderGoogleCoffeeShops parentComponent="google" location={location} /> : null} */}
             </Container>
         </>
     )

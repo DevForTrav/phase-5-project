@@ -5,17 +5,17 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        favorite = Favorite.create!(favorite_params)
+        favorite = Favorite.find_or_create_by!(favorite_params)
         render json: favorite, status: :created
     end
 
     def show
-        favorite = Favorite.find(params[:id])
+        favorite = Favorite.find_by(favorite_params)
         render json: favorite
     end
 
     def destroy
-        favorite = Favorite.find(params[:id])
+        favorite = Favorite.find_by(favorite_params)
         favorite.delete
         head :no_content
     end
@@ -23,6 +23,6 @@ class FavoritesController < ApplicationController
     private
 
     def favorite_params
-        params.permit(:is_favorited, :user_id, :location_id, :coffee_shop_id)
+        params.permit(:user_id, :location_id)
     end
 end

@@ -1,14 +1,13 @@
-class LocationsController < ApplicationController
+class LocationsController < ApplicationController 
     def index
         locations = Location.all
         render json: locations
     end
 
     def create
-
         byebug
-        # location = Location.create!(location_params)
-        # render json: location, status: :created
+        location = Location.find_or_create_by!(location_params)
+        render json: location, status: :created
     end
 
     def show
@@ -25,7 +24,7 @@ class LocationsController < ApplicationController
     private
 
     def location_params
-        params.permit(:street_address, :city, :state, :zip, :coffee_shop_id)
+        params.permit(:street_address, :city, :state, :zip, :coffee_shop_id, :formatted_address, :place_id, :photo_reference, :coordinates)
     end
 
 end

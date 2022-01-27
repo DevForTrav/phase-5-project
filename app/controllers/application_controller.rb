@@ -14,4 +14,9 @@ class ApplicationController < ActionController::API
     def render_unprocessable_entity_response(exception)
         render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
     end
+
+    def is_admin
+        permitted = @current_user[:account_type] == "admin"
+        render json: { errors: ["Unauthorized"]}, status: :unauthorized unless permitted
+    end
 end

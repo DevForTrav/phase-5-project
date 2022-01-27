@@ -16,6 +16,8 @@ const SignupForm = (props) => {
     const [passwordConfirmation, setPasswordConfirmation] = useState(null)
     const [err, setErr] = useState([])
 
+    console.log(props)
+
     const createAccount = () => {
         axios.post("/signup", {
             "first_name": firstName,
@@ -27,12 +29,8 @@ const SignupForm = (props) => {
             "is_verified": false,
             "account_type": "user"
         }).then((res) => {
-            if (res.ok) {
-                res.json().then(() => {
-                    props.isLoggedIn(true)
-                })
-            }
-        }).catch((error) => setErr(error))
+            props.isLoggedIn(true)
+        }).catch((error) => console.log(error))
 
     }
 
@@ -63,7 +61,6 @@ const SignupForm = (props) => {
 
                     <Form.Group 
                         className="mb-3" 
-                        controlId=""
                         onChange={ (e) => setFirstName(e.target.value) }    
                     >
                         <Form.Label>First Name</Form.Label>
@@ -72,7 +69,6 @@ const SignupForm = (props) => {
                     <Form.Group 
                         onChange={ (e) => setLastName(e.target.value) }
                         className="mb-3" 
-                        controlId=""
                     >
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter last name" />
@@ -80,7 +76,6 @@ const SignupForm = (props) => {
                     <Form.Group 
                         onChange={ (e) => setAge(parseInt(e.target.value)) }
                         className="mb-3" 
-                        controlId=""
                     >
                         <Form.Label>Age</Form.Label>
                         <Form.Control type="text" placeholder="Enter age" />
@@ -88,7 +83,6 @@ const SignupForm = (props) => {
                     <Form.Group 
                         onChange={ (e) => setPassword(e.target.value) }
                         className="mb-3" 
-                        controlId="formBasicPassword"
                     >
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
@@ -96,7 +90,6 @@ const SignupForm = (props) => {
                     <Form.Group 
                         onChange={ (e) => setPasswordConfirmation(e.target.value) }
                         className="mb-3" 
-                        controlId="formBasicPassword"
                     >
                         <Form.Label>Password Confirmation</Form.Label>
                         <Form.Control type="password" placeholder="Confirm password" />

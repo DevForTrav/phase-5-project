@@ -5,7 +5,7 @@ class CoffeeShopsController < ApplicationController
     end
 
     def create
-        coffee_shop = CoffeeShop.create!(coffee_shop_params)
+        coffee_shop = CoffeeShop.find_or_create_by!(coffee_shop_params)
         render json: coffee_shop, status: :created
     end
 
