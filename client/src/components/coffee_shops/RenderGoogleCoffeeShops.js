@@ -7,21 +7,27 @@ import  Col from "react-bootstrap/Col";
 
 
 const RenderGoogleCoffeeShops = ( props ) => {
-    const [ coffeeShops, setCoffeeShops ] = useState([])
+    // const [ coffeeShops, setCoffeeShops ] = useState([])
     
-    useEffect(() => {
-        const location = props.location
-        axios.get(`/google_places?latitude=${location.lat}&longitude=${location.lng}`)
-        .then((res) => {
-            setCoffeeShops(res.data)
-        })
-    }, [props.location])
+    // useEffect(() => {
+
+    //     axios.get(`/google_places?latitude=${props.userLocation.lat}&longitude=${props.userLocation.lng}`)
+    //     .then((res) => {
+    //         setCoffeeShops(res.data)
+    //     })
+    // }, [props.userLocation])
  
     const renderCoffeeShops = () => {
-        return coffeeShops.map((coffeeShop, idx) => {
+        console.log(props)
+        return props.coffeeShops.map((coffeeShop, idx) => {
             return( 
                 <Col key={idx} >
-                    <CoffeeShopCard parentComponent={props.parentComponent} currentUserLocation={props.location} coffeeShop={coffeeShop} />
+                    <CoffeeShopCard 
+                        parentComponent={props.parentComponent} 
+                        userLocation={props.userLocation} 
+                        coffeeShop={coffeeShop} 
+                        user={props.parentComponent === "kaffico" ? props.user : null }
+                    />
                 </Col>
             )
         })

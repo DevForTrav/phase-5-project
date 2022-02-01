@@ -8,12 +8,12 @@ const Navigation = ( props ) => {
                 <Navbar.Brand style={{"marginLeft": "3em"}} >
                     Kaffico
                 </Navbar.Brand>
-                <Nav defaultActiveKey="/home" className="justify-content-end flex-grow-1 pe-3" >
+                <Nav activeKey="/" className="justify-content-end flex-grow-1 pe-3" >
                     <Nav.Item>
                         <Nav.Link href="/home">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/user_favorites">Favorites</Nav.Link>
+                        <Nav.Link href="/favorites">Favorites</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link eventKey="link-2">Link</Nav.Link>

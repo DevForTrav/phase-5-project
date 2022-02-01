@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/coffee_shop_images', to: "coffee_shop_images#index"
   get '/favorites/:user_id/:location_id', to: "favorites#show"
   delete '/favorites/:user_id/:location_id', to: "favorites#destroy"
+  get '/users/:user_id/locations', to: "users#locations"
+  get '/locations/:user_location', to: "locations#index"
+
 
   resources :users
   resources :coffee_shops

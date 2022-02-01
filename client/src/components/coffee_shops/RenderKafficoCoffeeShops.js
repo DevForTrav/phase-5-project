@@ -3,25 +3,22 @@ import React, { useEffect, useState } from "react";
  import CoffeeShopCard from "./CoffeeShopCard";
 import  Row from "react-bootstrap/Row";
 import  Col from "react-bootstrap/Col";
+// import { getCoffeeShopLocations} from "../../custom_modules/getCoffeeShopLocations";
 
 
 
 const RenderKafficoCoffeeShops = ( props ) => {
-    const [ coffeeShops, setCoffeeShops ] = useState([])
+    // const [ coffeeShops, setCoffeeShops ] = useState([])
     
-    useEffect(() => {
-        const location = props.location
-        axios.get(`/locations`)
-        .then((res) => {
-            setCoffeeShops(res.data)
-        })
-    }, [props.location])
+    // useEffect(() => {
+    //     getCoffeeShopLocations(setCoffeeShops, props.userLocation)
+    // }, [])
  
     const renderCoffeeShops = () => {
-        return coffeeShops.map((coffeeShop, idx) => {
+        return props.coffeeShops.map((coffeeShop, idx) => {
             return( 
                 <Col key={idx} >
-                    <CoffeeShopCard  user={props.user} parentComponent={props.parentComponent} currentUserLocation={props.location} coffeeShop={coffeeShop} />
+                    <CoffeeShopCard  user={props.user} parentComponent={props.parentComponent} userLocation={props.userLocation} coffeeShop={coffeeShop} />
                 </Col>
             )
         })
@@ -31,7 +28,7 @@ const RenderKafficoCoffeeShops = ( props ) => {
     return (
         <>
             <Row style={{marginBottom: "5em"}}>
-                {coffeeShops? renderCoffeeShops() : null}
+                {props.coffeeShops? renderCoffeeShops() : null}
             </Row>
         </> 
     )

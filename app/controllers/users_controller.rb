@@ -29,6 +29,11 @@ class UsersController < ApplicationController
         head :no_content
     end
 
+    def locations
+        user = User.find_by(user_params)
+        render json: user.locations
+    end
+
     private 
 
     def user_params

@@ -17,13 +17,12 @@ const CoffeeShopCard = ( props ) => {
     const [renderCoffeeShopModal, setRenderCoffeeShopModal ] = useState(false)
     const [renderCardDropdown, setRenderCardDropdown ] = useState(false)
 
-    const userCurrentLocation= `${props.currentUserLocation.lat},${props.currentUserLocation.lng}`
+    const userLocation= `${props.userLocation.lat},${props.userLocation.lng}`
     const destination = props.coffeeShop.geometry ? `${props.coffeeShop.geometry.location.lat},${props.coffeeShop.geometry.location.lng}` : props.coffeeShop.coordinates
-    const photoReference = props.coffeeShop.photos
+    const photoReference = props.coffeeShop.photos ? props.coffeeShop.photos[0].photo_reference : props.coffeeShop.photo_reference
 
 
     const displayModal = e => {
-        console.log(props)
         if (e.target.classList.contains("open-modal")) {
             setRenderCoffeeShopModal(!renderCoffeeShopModal)
         }
@@ -37,8 +36,8 @@ const CoffeeShopCard = ( props ) => {
      
     useEffect(() => {
         getCoffeeShopImage(photoReference, setImg)
-        distanceToCoffeeShop(userCurrentLocation, destination).then(res => setDistance(res))
-    }, [userCurrentLocation, destination, photoReference, props])
+        distanceToCoffeeShop(userLocation, destination).then(res => setDistance(res))
+    }, [userLocation, destination])
 
 
     return (

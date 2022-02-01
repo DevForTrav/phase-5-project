@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const getCoffeeShopImage = (photoReference, state) => {
     if (photoReference) {
-        axios.get(`/coffee_shop_images?photo_reference=${photoReference[0].photo_reference}`).then( res => {
+        axios.get(`/coffee_shop_images?photo_reference=${photoReference}`).then( res => {
             state(`data:image/jpeg;base64,${res.data}`)
         })
     } else {

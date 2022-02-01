@@ -6,10 +6,10 @@ import {createFavorite, findFavorite, deleteFavorite} from '../../../custom_modu
 
 const FavoriteButton = ( props ) => {
     const [favorite, setFavorite] = useState(null)
-
+    
     useEffect(() => {
         findFavorite(props.user.id, props.coffeeShop.id, setFavorite)
-    }, [props])
+    }, [props.coffeeShop, props.user.id])
 
     const handleFavorited = () => {
         createFavorite(props.user.id, props.coffeeShop.id, setFavorite)
@@ -22,6 +22,7 @@ const FavoriteButton = ( props ) => {
 
     return(
         <>
+
             {   
                 favorite ?
                     <Button 

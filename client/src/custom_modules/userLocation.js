@@ -1,18 +1,15 @@
-const getUserLocation =  (state) => {
+export const getUserLocation = async (setUserLocation) => {
 
-        const displayLocationInfo =  position => {
-            
-            const userLocation = {
-                lng: position.coords.longitude,
-                lat: position.coords.latitude
-            }
+    const displayLocationInfo = async position => {
+        setUserLocation({
+            lat: await position.coords.latitude,
+            lng: await position.coords.longitude
+        })
+    }
 
-            state(userLocation)
-        }
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(displayLocationInfo);    
-        }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(displayLocationInfo);    
+    }
 }
 
-module.exports = { getUserLocation }
+// module.exports = { getUserLocation }
